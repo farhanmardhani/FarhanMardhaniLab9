@@ -9,4 +9,4 @@ Menu
 
 def encoder (number):
     list = []
-    for i in range
+    for i in range:
