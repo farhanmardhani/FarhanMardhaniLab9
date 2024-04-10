@@ -1,3 +1,7 @@
+#Grant Burling
+#Farhan Mardhani
+
+
 def menu ():
     print ('''
 Menu
@@ -9,30 +13,39 @@ Menu
 
 def encoder (number):
     list = []
-    for i in range (0,len(number)):
+    for i in range(0, len(number)):
         list.append(int(number[i]))
-    for i in range (0,len(list)):
-        list [i] = (list[i] + 3)%10
-    list [i] = str(list [i])
+    for i in range(0, len(list)):
+        list[i] = (list[i] + 3) % 10
+        list[i] = str(list [i])
     return "".join(list)
 
-def decoder ():
-    pass
+def decoder(number):
+    list = []
+    for i in range(0, len(encoder(number))):
+        list.append(int(number[i]))
+    for i in range(0, len(list)):
+        list[i] = (list[i] - 3)
+        if list[i] < 0:
+            list[i] = list[i] + 10
+    for i in range(0, len(list)):
+        list[i] = str(list[i])
+    return "".join(list)
 
 def main ():
     option = 0
     while option != 3:
         menu()
         option = int(input("Please enter an option: "))
-        number = int(input("Please enter your password to encode: "))
-        if option ==1:
+        if option == 1:
+            number = str(input("Please enter your password to encode: "))
             print (encoder(number))
             print ("Your password has been encoded and stored!")
             print ("")
         if option ==2:
-            encode = encoder(number)
-            decode = decoder(number)
-            print (f"The endoded password is {encode}, and the orginal password is {decode}")
+            en = (encoder(number))
+            de = (decoder(en))
+            print (f"The encoded password is {en}, and the orginal password is {de}")
         if option == 3:
             break
 
